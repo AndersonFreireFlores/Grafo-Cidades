@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MyComboBox extends JComboBox<Cidades> implements ActionListener {
@@ -11,6 +10,7 @@ public class MyComboBox extends JComboBox<Cidades> implements ActionListener {
         }
         this.setSize(100,100);
         this.setVisible(true);
+        this.setFocusable(false);
     }
 
 }

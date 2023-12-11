@@ -1,5 +1,4 @@
-import java.util.Arrays;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class Graph {
 
@@ -45,8 +44,12 @@ public class Graph {
     }
 
     public String encontrarMenorCaminho(int origem, int destino) {
-        int[] distancias = new int[numVertices];
+
+
+        ArrayList<Integer> predecessores = new ArrayList<>();
+        double[] distancias = new double[numVertices];
         boolean[] visitado = new boolean[numVertices];
+
         PriorityQueue<Integer> filaPrioridade = new PriorityQueue<>();
 
         Arrays.fill(distancias, INFINITY);
@@ -60,13 +63,29 @@ public class Graph {
             for (int v = 0; v < numVertices; v++) {
                 if (!visitado[v] && adjMatrix[u][v] &&
                         distancias[u] + matrixDistancia[u][v] < distancias[v]) {
-                    distancias[v] = (int) (distancias[u] + matrixDistancia[u][v]);
+                    distancias[v] = (distancias[u] + matrixDistancia[u][v]);
+                    predecessores.add(u);
                     filaPrioridade.add(v);
                 }
             }
         }
-            return "O menor caminho de " + Cidades.getCidade(origem) + " para " + Cidades.getCidade(destino) +
-                " é: " + distancias[destino];
 
+        StringBuilder resultado = new StringBuilder();
+        if (origem == destino){
+            return "A origem e o destino são o mesmo lugar!";
+        }else {
+        resultado.append("O menor caminho de ").append(Cidades.getCidade(origem)).append(" para ").append(Cidades.getCidade(destino)).append(" é: ").append(distancias[destino]).append("\n").append("Caminho: ");
+
+            Set<String> antiRepetição = new TreeSet<>();
+            for (Integer predecessore : predecessores) {
+                antiRepetição.add("\n ->" + Cidades.getCidade(predecessore));
+            }
+            for(String x : antiRepetição){
+                resultado.append(x);
+            }
+        }
+
+        return resultado.toString();
     }
 }
+

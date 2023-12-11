@@ -1,6 +1,3 @@
-import javax.swing.*;
-import java.awt.*;
-
 public class Main  {
 
     public static void main(String[] args) {
@@ -32,14 +29,9 @@ public class Main  {
 
         g.addEdge(Cidades.TUPANDI.ordinal(), Cidades.BOM_PRINCIPIO.ordinal(), 10.3);
 
-
         g.addEdge(Cidades.SAO_VEDELINO.ordinal(), Cidades.FELIZ.ordinal(), 19.3);
         g.addEdge(Cidades.SAO_VEDELINO.ordinal(), Cidades.ALTO_FELIZ.ordinal(), 10.2);
         g.addEdge(Cidades.SAO_VEDELINO.ordinal(), Cidades.BOM_PRINCIPIO.ordinal(), 15.2);
-
-        System.out.print(g.toString());
-
-        System.out.println(g.encontrarMenorCaminho(Cidades.S_S_DO_CAI.ordinal(), Cidades.ALTO_FELIZ.ordinal()));
 
         Cidades[] listaDeCidades = Cidades.values();
         MyFrame frame = new MyFrame(listaDeCidades, g);
