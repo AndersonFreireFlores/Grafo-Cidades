@@ -38,11 +38,11 @@ public class Main  {
         g.addEdge(Cidades.SAO_VEDELINO.ordinal(), Cidades.BOM_PRINCIPIO.ordinal(), 15.2);
 
         System.out.print(g.toString());
-        g.encontrarMenorCaminho(Cidades.S_S_DO_CAI.ordinal(), Cidades.ALTO_FELIZ.ordinal());
 
-        String[] listaDeCidades = {"Feliz", "Vale Real", "S.S. do Caí", "Alto Feliz", "Bom Principio", "Tupandi", "São Vedelino"};
+        System.out.println(g.encontrarMenorCaminho(Cidades.S_S_DO_CAI.ordinal(), Cidades.ALTO_FELIZ.ordinal()));
 
-        new MyFrame(listaDeCidades);
+        Cidades[] listaDeCidades = Cidades.values();
+        MyFrame frame = new MyFrame(listaDeCidades, g);
 
     }
 }

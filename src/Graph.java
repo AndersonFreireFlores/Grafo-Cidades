@@ -44,7 +44,7 @@ public class Graph {
         return s.toString();
     }
 
-    public void encontrarMenorCaminho(int origem, int destino) {
+    public String encontrarMenorCaminho(int origem, int destino) {
         int[] distancias = new int[numVertices];
         boolean[] visitado = new boolean[numVertices];
         PriorityQueue<Integer> filaPrioridade = new PriorityQueue<>();
@@ -65,7 +65,8 @@ public class Graph {
                 }
             }
         }
-        System.out.println("O menor caminho de " + Cidades.getCidade(origem) + " para " + Cidades.getCidade(destino) +
-                " é: " + distancias[destino]);
+            return "O menor caminho de " + Cidades.getCidade(origem) + " para " + Cidades.getCidade(destino) +
+                " é: " + distancias[destino];
+
     }
 }
